@@ -1,0 +1,77 @@
+<div class="min-h-screen py-6 flex flex-col justify-center sm:py-12 bg-gray-50">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+    </div>
+    <div class="relative px-4 py-10 bg-white shadow-xl sm:rounded-3xl sm:p-20">
+      <div class="max-w-md mx-auto">
+        <div>
+          <h1 class="text-center text-3xl font-extrabold text-gray-700">
+            Start Your Rental Adventure
+          </h1>
+        </div>
+
+        <form [formGroup]="signupForm">
+          <div class="py-8 text-base leading-6 space-y-6 text-gray-700 sm:text-lg sm:leading-7">
+
+            <!-- Email field -->
+            <div class="relative">
+              <input id="email" type="email"
+                class="peer placeholder-transparent h-12 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500"
+                placeholder="Email address" formControlName="email" />
+              <label for="email"
+                class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-500 peer-focus:text-sm">Email
+                Address</label>
+            </div>
+
+            <!-- Password field -->
+            <div class="relative">
+              <input id="password" type="password"
+                class="peer placeholder-transparent h-12 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500"
+                placeholder="Password" formControlName="password" />
+              <label for="password"
+                class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-500 peer-focus:text-sm">Password</label>
+            </div>
+
+            <!-- Confirm password field -->
+            <div class="relative">
+              <input id="confirm-password" type="password"
+                class="peer placeholder-transparent h-12 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500"
+                placeholder="Confirm Password" formControlName="checkPassword" />
+              <label for="confirm-password"
+                class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-500 peer-focus:text-sm">Confirm
+                Password</label>
+            </div>
+
+            <!-- Name field -->
+            <div class="relative">
+              <input id="name" type="text"
+                class="peer placeholder-transparent h-12 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500"
+                placeholder="FullName" formControlName="name" />
+              <label for="name"
+                class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-teal-500 peer-focus:text-sm">FullName</label>
+            </div>
+
+            <!-- Register Button -->
+            <div class="relative">
+              <button
+                class="transition-all duration-300 ease-in-out text-white bg-teal-500 hover:bg-teal-600 focus:ring-4 focus:ring-teal-300 w-full h-12 mt-4 rounded-lg shadow-lg font-bold"
+                type="submit" (click)="register()" [disabled]="signupForm.invalid">
+                Register
+              </button>
+            </div>
+
+            <!-- Login Link -->
+            <div>
+              <p class="text-center mt-4 text-gray-500">
+                Already have an account?
+                <a routerLink="/login"
+                  class="text-teal-500 font-bold cursor-pointer transition-all hover:text-teal-700">Login</a>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

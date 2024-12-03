@@ -1,0 +1,173 @@
+<div style="margin-top: 50px; padding: 40px; background: linear-gradient(135deg, #f0f8ff, #e6e6fa); border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <div class="flex flex-col items-center">
+      <h1 class="text-2xl font-extrabold text-blue-700 mb-6 text-center">Post Your Car</h1>
+
+      <form nz-form [formGroup]="postCarForm" class="w-full max-w-lg">
+        <div class="pb-6">
+          <div class="profile-badge flex justify-center items-center">
+            <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+              <img
+                class="profile rounded-full border-4 border-blue-500 shadow-lg"
+                [src]="imagePreview"
+                alt="profile"
+                style="width: 120px; height: 120px;"
+              />
+            </label>
+            <input
+              type="file"
+              nz-button
+              nzType="primary"
+              id="upload_profile_image"
+              class="mt-3"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+            />
+          </div>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Brand selection is required">
+              <nz-select
+                formControlName="brand"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Select a Brand"
+                class="shadow-md"
+              >
+                <nz-option
+                  *ngFor="let brand of listOfBrands"
+                  nzLabel="{{ brand }}"
+                  nzValue="{{ brand }}"
+                ></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Name is required">
+              <input
+                nz-input
+                placeholder="Car Name"
+                formControlName="name"
+                class="shadow-md"
+              />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Type selection is required">
+              <nz-select
+                formControlName="type"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Select a Type"
+                class="shadow-md"
+              >
+                <nz-option
+                  *ngFor="let type of listOfType"
+                  nzLabel="{{ type }}"
+                  nzValue="{{ type }}"
+                ></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Transmission selection is required">
+              <nz-select
+                formControlName="transmission"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Select Transmission"
+                class="shadow-md"
+              >
+                <nz-option
+                  *ngFor="let transmission of listOfTransmission"
+                  nzLabel="{{ transmission }}"
+                  nzValue="{{ transmission }}"
+                ></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Color selection is required">
+              <nz-select
+                formControlName="color"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Select a Color"
+                class="shadow-md"
+              >
+                <nz-option
+                  *ngFor="let color of listOfColor"
+                  nzLabel="{{ color }}"
+                  nzValue="{{ color }}"
+                ></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Model year is required">
+              <input
+                formControlName="year"
+                nz-input
+                placeholder="Model Year"
+                class="shadow-md"
+              />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Price is required">
+              <input
+                formControlName="price"
+                nz-input
+                placeholder="Price"
+                class="shadow-md"
+              />
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div>
+          <nz-form-item>
+            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Description is required">
+              <textarea
+                formControlName="description"
+                rows="3"
+                nz-input
+                placeholder="Description"
+                class="shadow-md"
+              ></textarea>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <button
+          nz-button
+          class="w-full mt-6 py-2 text-lg font-bold text-white rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800"
+          [nzType]="'primary'"
+          (click)="postCar()"
+        >
+          Post Car
+        </button>
+      </form>
+    </div>
+  </nz-spin>
+</div>

@@ -1,0 +1,85 @@
+<div style="background-color: #ccc; padding: 24px;" *ngIf="car">
+  <div style="padding-top: 10px;"></div>
+
+  <div style="margin-top: 10px;" class="child">
+    <div style="background-color: #fff;  padding: 24px;">
+      <div>
+        <img class="profile w-1/2 m-auto" style="height: 230px; border-radius: 10px; object-fit: cover;"
+          [src]="car.processedImage" alt="profile">
+      </div>
+
+      <div style="padding-top: 24px;">
+        <h2 style="cursor: pointer; color: #108ee9;">{{car.brand}} - {{car.name}}</h2>
+
+        <p>{{car.description}}</p>
+
+        <h5>Price: <b>${{car.price}}</b> - Color : <b>{{car.color}}</b> - Transmission : <b>{{car.transmission}}</b> -
+          Type : <b>{{car.type}}</b> - Year : <b>{{car.year}}</b>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working..." style="margin-top: 50px;">
+    <div class="dashboard-filter">
+        <div class="filter-grid">
+            <form [formGroup]="validateForm">
+                <div class="filter-select-dropdown filter-fields-width" style="display: flex; align-items: center;">
+                    
+                    <!-- From Date Picker -->
+                    <nz-form-item style="margin-right: 20px;">
+                        <nz-form-label [nzSpan]="0" nzFor="fromDate">From Date</nz-form-label>
+                        <nz-form-control [nzSpan]="0">
+                            <nz-date-picker>
+                                formControlName="fromDate"
+                                nzPlaceHolder="From Date"
+                                [nzFormat]="dateFormat"
+                                nzSuffixIcon="calendar"  <!-- Adds calendar icon -->
+                                nzDropdownClassName="custom-date-picker-dropdown"
+                                id="fromDate"
+                                style="width: 150px;">
+                            </nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <!-- To Date Picker -->
+                    <nz-form-item style="margin-right: 20px;">
+                        <nz-form-label [nzSpan]="0" nzFor="toDate">To Date</nz-form-label>
+                        <nz-form-control [nzSpan]="0">
+                            <nz-date-picker>
+                                formControlName="toDate"
+                                nzPlaceHolder="To Date"
+                                [nzFormat]="dateFormat"
+                                nzSuffixIcon="calendar"  <!-- Adds calendar icon -->
+                                nzDropdownClassName="custom-date-picker-dropdown"
+                                id="toDate"
+                                style="width: 150px;">
+                            </nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <!-- Book Car Button -->
+                    <div style="margin-left: 20px;">
+                        <button
+                            class="filterBtn"
+                            nz-button
+                            nzType="primary"
+                            (click)="bookACar(validateForm.value)"
+                            style="width: 100px;">
+                            Book Car
+                        </button>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</nz-spin>
+
+
+
+
+
+
+
+</div>

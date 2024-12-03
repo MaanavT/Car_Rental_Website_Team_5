@@ -1,0 +1,29 @@
+:host {
+    .child {
+      margin-bottom: 20px;
+  
+      img.profile {
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      img.profile:hover {
+        transform: scale(1.05);
+      }
+  
+      h2 {
+        transition: color 0.3s ease-in-out;
+      }
+  
+      h2:hover {
+        color: #0d47a1;
+      }
+    }
+  
+    button {
+      transition: background-color 0.3s ease-in-out;
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }

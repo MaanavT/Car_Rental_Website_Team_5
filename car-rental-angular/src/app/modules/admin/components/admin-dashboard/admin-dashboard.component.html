@@ -1,0 +1,33 @@
+<div style="background-color: #f0f0f5; min-height: 91vh; padding: 24px;">
+  <div style="padding-top: 10px;"></div>
+
+  <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
+    <div nz-row style="background-color: #ffffff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <div nz-col nzSpan="8">
+        <img class="profile" style="height: 130px; border-radius: 10px; object-fit: cover; border: 2px solid #108ee9;" [src]="car.processedImage"
+          alt="profile">
+      </div>
+
+      <div nz-col nzSpan="16">
+        <h2 style="cursor: pointer; color: #4caf50; font-weight: bold;">{{car.brand}} - {{car.name}}</h2>
+
+        <p style="color: #555;">{{car.description}}</p>
+
+        <hr style="border-color: #ddd;">
+
+        <h5 style="color: #333;">
+          Price: <b>${{car.price}}</b> - Color : <b>{{car.color}}</b> - Transmission : <b>{{car.transmission}}</b> -
+          Type : <b>{{car.type}}</b> - Year : <b>{{car.year}}</b>
+        </h5>
+
+        <div style="float: right;">
+          <button style="margin-left: 10px; background-color: #108ee9; color: #fff;" nzSize="small" nz-button nzType="primary"
+            routerLink="/admin/car/{{car.id}}">Update</button>
+
+          <button style="margin-left: 10px; background-color: #f44336; color: #fff;" nzSize="small" nz-button nzType="primary" nzDanger
+            (click)="deleteCar(car.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
