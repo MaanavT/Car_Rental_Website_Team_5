@@ -1,5 +1,5 @@
 ## Car Rental Project ( Fullstack Project )
-# Tech Stack used - Spring Boot, Angular, MySQL
+Tech Stack used - Spring Boot, Angular, MySQL
 ## Team Members :
 
 - Maanav Thalapilly - AM.EN.U4CSE21134
